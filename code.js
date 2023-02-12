@@ -1,44 +1,51 @@
 const data = JSON.parse(dataProducts);
 console.log(data);
 
-const fiCatalogEl = document.querySelector('.fi_catalog');
-const templateEl = document.querySelector('.template');
-const btnViewAllEl = document.querySelector('.view_all');
+const fiCatalogEl = document.querySelector(".fi_catalog");
+const templateEl = document.querySelector(".template");
+const btnViewAllEl = document.querySelector(".view_all");
 
 let end = 6;
 let start = 0;
+let counter = 0;
 
 showItems();
+let addToCartBtn = document.querySelectorAll(".cart");
+addItemToCart(addToCartBtn);
 
-btnViewAllEl.addEventListener('click', function (e) {
-    start = end;
-    end = end + 3;
-    showItems();
-    if (end == data.length) {
-        btnViewAllEl.classList.add('hide');
-    }
+btnViewAllEl.addEventListener("click", function (e) {
+  start = end;
+  end = end + 3;
+  showItems();
+  if (end == data.length) {
+    btnViewAllEl.classList.add("hide");
+  }
+  const newBtn = document.querySelectorAll(".cart");
+  addToCartBtn = newBtn;
+  addItemToCart(newBtn);
 });
 
+function showItems() {
+  for (i = start; i < end; i++) {
+    const fiCatalogItemEl = templateEl.content
+      .querySelector(".fi_catalog_item")
+      .cloneNode(true);
 
-function showItems () {
-    for (i = start; i < end; i++) {
-        const fiCatalogItemEl = templateEl.content.querySelector('.fi_catalog_item').cloneNode(true);
-    
-        const imgEl = fiCatalogItemEl.querySelector('.fi_catalog_image');
-        imgEl.src = data[i].img;
-    
-        const itemNameEl = fiCatalogItemEl.querySelector('.item_name');
-        itemNameEl.textContent = data[i].name;
-    
-        const descriptionEl = fiCatalogItemEl.querySelector('.description');
-        descriptionEl.textContent = data[i].description;
-    
-        const priceEl = fiCatalogItemEl.querySelector('.price');
-        priceEl.textContent = data[i].price;
-    
-        fiCatalogEl.appendChild(fiCatalogItemEl);
-}}
+    const imgEl = fiCatalogItemEl.querySelector(".fi_catalog_image");
+    imgEl.src = data[i].img;
 
+    const itemNameEl = fiCatalogItemEl.querySelector(".item_name");
+    itemNameEl.textContent = data[i].name;
+
+    const descriptionEl = fiCatalogItemEl.querySelector(".description");
+    descriptionEl.textContent = data[i].description;
+
+    const priceEl = fiCatalogItemEl.querySelector(".price");
+    priceEl.textContent = data[i].price;
+
+    fiCatalogEl.appendChild(fiCatalogItemEl);
+  }
+}
 
 // data.forEach(element => {
 //     const fiCatalogItemEl = templateEl.content.querySelector('.fi_catalog_item').cloneNode(true);
@@ -58,15 +65,15 @@ function showItems () {
 //     fiCatalogEl.appendChild(fiCatalogItemEl);
 // });
 
-const countBlock = document.querySelector('.count_block');
-const addToCartBtn = document.querySelectorAll('.cart');
-let cartCounter = document.querySelector('.cart_num');
-let counter = 0;
+const countBlock = document.querySelector(".count_block");
+let cartCounter = document.querySelector(".cart_num");
 
-addToCartBtn.forEach((button) => {
-    button.addEventListener('click', function (e) {
-        countBlock.classList.remove('hide');
-        counter += 1;
-        cartCounter.textContent = counter;
+function addItemToCart(buttons) {
+  buttons.forEach((button) => {
+    button.addEventListener("click", function (e) {
+      countBlock.classList.remove("hide");
+      counter += 1;
+      cartCounter.textContent = counter;
     });
-});
+  });
+}
