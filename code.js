@@ -23,9 +23,9 @@ btnViewAllEl.addEventListener("click", function (e) {
     btnViewAllEl.classList.add("hide");
   }
 
-  const newBtn = document.querySelectorAll(".cart");
-  addToCartBtn = newBtn;
-  addItemToCart(newBtn);
+  const newBtn = fiCatalogEl.querySelectorAll(".cart");
+  const result = Array.from(newBtn).slice(start, end);
+  addItemToCart(result);
 });
 
 function showItems() {
@@ -59,8 +59,10 @@ function addItemToCart(buttons) {
   buttons.forEach((button) => {
     button.addEventListener("click", function (e) {
       countBlock.classList.remove("hide");
-      counter += 1;
+      counter++;
+      console.log(counter);
       cartCounter.textContent = counter;
+      console.log(e.target);
     });
   });
 }
