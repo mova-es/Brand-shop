@@ -4,6 +4,7 @@
   padding: 0;
   box-sizing: border-box;
   text-decoration: none;
+  scroll-behavior: smooth;
 }
 img {
   display: block;
@@ -16,6 +17,15 @@ body {
   font-style: normal;
 }
 header {
+  background: #222222;
+}
+
+.fix__head {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
   background: #222222;
 }
 .container {

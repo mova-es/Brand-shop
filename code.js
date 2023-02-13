@@ -67,6 +67,22 @@ function addItemToCart(buttons) {
   });
 }
 
+
+const headEl = document.querySelector('.head');
+window.addEventListener('scroll', function (e) {
+  const headHeight = headEl.getBoundingClientRect().height;
+      if (window.pageYOffset > 0) {
+        console.log(window.pageYOffset);
+        headEl.classList.add('fix__head');
+
+        contentEl.style.paddingTop = headHeight + 20 + "px";
+      }
+      else {
+        headEl.classList.remove('fix__head');
+        contentEl.style.paddingTop = 0;
+      }
+});
+
 // let end = 6;
 // let start = 0;
 // let counter = 0;
