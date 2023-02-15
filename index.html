@@ -50,11 +50,13 @@
               <img width="29px" src="img/man.svg" alt="man" />
             </button>
             <div class="cart_top">
-              <button class="btn_nav">
-                <img width="32px" src="img/basket.svg" alt="basket" />
+              <a class="cart_top_link" href="#1">
+                  <button class="btn_nav">
+                <img class="cart_top_img" width="32px" src="img/basket.svg" alt="basket" />
               </button>
+                </a>
               <div class="count_block hide">
-               <img
+                <img
                   class="cart_count"
                   src="img/cart_count.svg"
                   alt="cart_count"
@@ -66,7 +68,7 @@
         </div>
       </div>
     </header>
-    <main>
+    <main class="main">
       <div class="main_pic">
         <div class="container">
           <div class="main_info">
@@ -141,22 +143,26 @@
           </div>
           <div class="fi_catalog">
             <template class="template">
-            <div class="fi_catalog_item">
-              <div class="add_to_cart">
-                <button class="cart">
-                  <img src="img/cart.svg" alt="cart" />Add to Cart
-                </button>
-              </div>
+              <div class="fi_catalog_item">
+                <div class="add_to_cart">
+                  <button class="cart">
+                    <img src="img/cart.svg" alt="cart" />Add to Cart
+                  </button>
+                </div>
                 <a class="img__link" href="#">
-                  <img class="fi_catalog_image" src="img/fi_item1.jpg" alt="item1"/></a>
-                  <h4 class="item_name">ELLERY X M'O CAPSULE</h4>
-                  <p class="description">
-                    Known for her sculptural takes on traditional tailoring,
-                    Australian arbiter of cool Kym Ellery teams up with Moda
-                    Operandi.
-                  </p>
-                  <p class="price">$52.00</p>
-            </div>
+                  <img
+                    class="fi_catalog_image"
+                    src="img/fi_item1.jpg"
+                    alt="item1"
+                /></a>
+                <h4 class="item_name">ELLERY X M'O CAPSULE</h4>
+                <p class="description">
+                  Known for her sculptural takes on traditional tailoring,
+                  Australian arbiter of cool Kym Ellery teams up with Moda
+                  Operandi.
+                </p>
+                <p class="price">$52.00</p>
+              </div>
             </template>
           </div>
           <div class="buttons">
@@ -202,6 +208,14 @@
           </div>
         </div>
       </div>
+
+      <div class="cart_items hide" id="1">
+        <div class="container">
+          <h4 class="cart_items_heading">Cart Items</h4>
+          <div class="added_items">
+        </div>
+      </div>
+    </div>
       <div class="footer__part2">
         <div class="footer__background">
           <div class="container">
@@ -224,7 +238,7 @@
                     placeholder="Enter Your Email"
                     class="button_input_email"
                   />
-                  <button class="button__subscribe">Subscribe</button>
+                  <button type="submit" class="button__subscribe">Subscribe</button>
                 </div>
               </div>
             </div>

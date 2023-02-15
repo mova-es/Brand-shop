@@ -4,14 +4,12 @@
   padding: 0;
   box-sizing: border-box;
   text-decoration: none;
-  scroll-behavior: smooth;
 }
 img {
   display: block;
   max-width: 100%;
 }
 body {
-  scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
   font-family: "Lato";
   font-style: normal;
@@ -101,6 +99,10 @@ header {
   position: relative;
   display: block;
   width: 50px;
+}
+
+.cart_top_img {
+cursor: pointer;
 }
 
 .cart_num {
@@ -347,6 +349,109 @@ line-height: 17px;
 text-align: center;
 color: #FBFBFB;
 }
+
+.cart_items {
+  padding-top: 96px;
+  padding-bottom: 96px;
+}
+
+.cart_items_heading {
+  font-family: 'Lato';
+font-style: normal;
+font-weight: 400;
+font-size: 30px;
+line-height: 36px;
+margin-bottom: 64px;
+text-align: center;
+}
+
+.added_items {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.block {
+  width: 652px;
+  display: flex;
+  justify-content: center;
+  box-shadow: 10px 20px 15px rgb(164, 164, 164);
+  margin-bottom: 40px;
+  position: relative;
+}
+.close {
+  position: absolute;
+  top: 28px;
+  right: 22px;
+  cursor: pointer;
+}
+
+.block__image {
+  width: 262px;
+  height: 306px;
+}
+
+.block__text {
+  width: 390px;
+  padding-left: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.added_item_name {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 29px;
+  color: #222222;
+  padding-bottom: 42px;
+}
+.added_item_price {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 26px;
+  color: #575757;
+  padding-bottom: 6px;
+}
+.color__red {
+  color: #ef5b70;
+}
+.added_item_color {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 26px;
+  color: #575757;
+  padding-bottom: 6px;
+}
+.added_item_size {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 26px;
+  color: #575757;
+  padding-bottom: 6px;
+}
+.quantity {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 26px;
+  color: #575757;
+}
+.added_item_input {
+  width: 43px;
+  height: 24px;
+  text-align: center;
+  margin-left: 21px;
+}
+
 .footer__part2 {
 background: url(img/footer_background.png);
 background-size: cover;
@@ -432,6 +537,7 @@ align-items: center;
 text-align: center;
 color: #FFFFFF;
 border-radius: 0 30px 30px 0;
+cursor: pointer;
 }
 .footer__part3 {
   background: #222224;

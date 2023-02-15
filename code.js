@@ -7,6 +7,7 @@ let end = 6;
 let start = 0;
 const visibleCount = 3;
 let counter = 0;
+let itemCounter = 1;
 
 showItems();
 
@@ -36,6 +37,9 @@ function showItems() {
       .querySelector(".fi_catalog_item")
       .cloneNode(true);
 
+    const cartEl = fiCatalogItemEl.querySelector(".cart");
+    cartEl.dataset.id = item.id;
+
     const imgEl = fiCatalogItemEl.querySelector(".fi_catalog_image");
     imgEl.src = item.img;
 
@@ -54,19 +58,102 @@ function showItems() {
 
 const countBlock = document.querySelector(".count_block");
 let cartCounter = document.querySelector(".cart_num");
+const cartItemsBlock = document.querySelector(".cart_items");
+const cartTopEl = document.querySelector(".cart_top");
 
 function addItemToCart(buttons) {
   buttons.forEach((button) => {
     button.addEventListener("click", function (e) {
+      cartItemsBlock.classList.remove("hide");
       countBlock.classList.remove("hide");
+
       counter++;
-      console.log(counter);
       cartCounter.textContent = counter;
-      console.log(e.target);
+
+      addAndDeleteCartItems(e);
     });
   });
 }
 
+function addAndDeleteCartItems(element) {
+
+  const addedItems = document.querySelector(".added_items");
+
+  const blockEl = document.createElement("div");
+  blockEl.classList.add("block");
+
+  const closeButtonEl = document.createElement("img");
+  closeButtonEl.classList.add("close");
+  closeButtonEl.src = "./img/Vector.png";
+
+  const blockImageEl = document.createElement("div");
+  blockImageEl.classList.add("block__image");
+
+  const blockImage = document.createElement("img");
+  blockImage.classList.add("added_item_image");
+  blockImage.src = data[element.target.dataset.id].img;
+
+  blockImageEl.appendChild(blockImage);
+
+  const blockTextEl = document.createElement("div");
+  blockTextEl.classList.add("block__text");
+
+  const nameEl = document.createElement("h1");
+  nameEl.classList.add("added_item_name");
+  nameEl.textContent = data[element.target.dataset.id].name;
+
+  const priceEl = document.createElement("p");
+  priceEl.classList.add("added_item_price");
+  priceEl.textContent = "Price: ";
+
+  const priceColorEl = document.createElement("span");
+  priceColorEl.classList.add("color__red");
+  priceColorEl.textContent = data[element.target.dataset.id].price;
+
+  priceEl.appendChild(priceColorEl);
+
+  const colorEl = document.createElement("p");
+  colorEl.classList.add("added_item_color");
+  colorEl.textContent = "Color: " + data[element.target.dataset.id].color;
+
+  const sizeEl = document.createElement("p");
+  sizeEl.classList.add("added_item_size");
+  sizeEl.textContent = "Size: " + data[element.target.dataset.id].size;
+
+  const quantityTextEl = document.createElement("p");
+  quantityTextEl.classList.add("quantity");
+  quantityTextEl.textContent = "Quantity: ";
+
+  const quantityInputEl = document.createElement("input");
+  quantityInputEl.classList.add("added_item_input");
+  quantityInputEl.type = "number";
+  quantityInputEl.value = itemCounter;
+
+  quantityTextEl.appendChild(quantityInputEl);
+
+  blockTextEl.appendChild(nameEl);
+  blockTextEl.appendChild(priceEl);
+  blockTextEl.appendChild(colorEl);
+  blockTextEl.appendChild(sizeEl);
+  blockTextEl.appendChild(quantityTextEl);
+
+  blockEl.appendChild(closeButtonEl);
+  blockEl.appendChild(blockImageEl);
+  blockEl.appendChild(blockTextEl);
+
+  addedItems.appendChild(blockEl);
+
+  const closeButton = blockEl.querySelector(".close");
+  closeButton.addEventListener("click", function (e) {
+    blockEl.classList.add("hide");
+    counter--;
+    cartCounter.textContent = counter;
+
+    if (counter == 0) {
+      cartItemsBlock.classList.add("hide");
+    }
+  });
+}
 
 const headEl = document.querySelector(".head");
 const mainEl = document.querySelector(".main");
@@ -82,6 +169,36 @@ window.addEventListener("scroll", function (e) {
     mainEl.style.paddingTop = 0;
   }
 });
+
+//const addedItems = document.querySelector(".added_items");
+
+// const addedItems = document.querySelector('.added_items');
+// const cartTemplateEl = document.querySelector('.cart_template');
+
+//     data.forEach(element => {
+//       const blockEl = templateEl.content.querySelector('.block').cloneNode(true);
+
+//       const blockImage = blockEl.querySelector('.image');;
+//       blockImage.src = element.img;
+
+//       const nameEl = blockEl.querySelector('.name');
+//       nameEl.textContent = element.name;
+
+//       const priceColorEl = blockEl.querySelector('.color__red');
+//       priceColorEl.textContent = "$" + element.price;
+
+//       const colorEl = blockEl.querySelector('.color');
+//       colorEl.textContent = "Color: " + element.color;
+
+//       const sizeEl = blockEl.querySelector('.size');
+//       sizeEl.textContent = "Size: " + element.size;
+
+//       const quantityInputEl = blockEl.querySelector('.input');
+//       quantityInputEl.value = element.quantity;
+
+//       contentEl.appendChild(blockEl)
+
+//     });
 
 // let end = 6;
 // let start = 0;
