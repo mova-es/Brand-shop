@@ -68,19 +68,19 @@ function addItemToCart(buttons) {
 }
 
 
-const headEl = document.querySelector('.head');
-window.addEventListener('scroll', function (e) {
-  const headHeight = headEl.getBoundingClientRect().height;
-      if (window.pageYOffset > 0) {
-        console.log(window.pageYOffset);
-        headEl.classList.add('fix__head');
+const headEl = document.querySelector(".head");
+const mainEl = document.querySelector(".main");
 
-        contentEl.style.paddingTop = headHeight + 20 + "px";
-      }
-      else {
-        headEl.classList.remove('fix__head');
-        contentEl.style.paddingTop = 0;
-      }
+window.addEventListener("scroll", function (e) {
+  const headHeight = headEl.getBoundingClientRect().height;
+  if (window.pageYOffset > 0) {
+    //console.log(window.pageYOffset);
+    headEl.classList.add("fix__head");
+    mainEl.style.paddingTop = headHeight + "px";
+  } else {
+    headEl.classList.remove("fix__head");
+    mainEl.style.paddingTop = 0;
+  }
 });
 
 // let end = 6;
