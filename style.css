@@ -141,6 +141,15 @@ cursor: pointer;
   position: relative;
   background: #211616;
   border: none;
+  cursor: pointer;
+  transition: 1s ease;
+}
+
+.item_1:hover,
+.item_2:hover,
+.item_3:hover,
+.item_4:hover {
+transform: scale(1.1);
 }
 
 .categories_links {
@@ -555,6 +564,7 @@ cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .part3 {
