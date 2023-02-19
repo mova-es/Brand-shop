@@ -677,7 +677,7 @@ color: #FBFBFB;
 
 
 }
-@media (max-width:375px) {
+@media (max-width:380px) {
   .container {
     max-width: 343px;
   }
